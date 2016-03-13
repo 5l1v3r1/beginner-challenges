@@ -21,3 +21,29 @@ Polynomials can be represented as strings of the form "a + bx + cx^2 + cx^3 ..."
 ## Polynomial roots
 
 There are many ways to find the roots of polynomials. You might simply implement a brute force solution; such a thing is relatively easy for a computer. You might also try a binary search or some other method. You can probably come up with something clever, especially if you know calculus.
+
+# Specific challenges
+
+Once you've made your polynomial tools, try to find the real roots of the following polynomials:
+
+```
+2x^2 + 2x - 1
+```
+
+```
+x^5 + 7x^4 - 179x^3 - 783x^2 + 1890x + 5400
+```
+
+```
+(10x^3 + 2x^2 - 1)(10x^2 + 2x) - 5(7x^3 + 3x^2 + 1x + 10)
+```
+
+Graph the following polynomials:
+
+```
+-x + 0.1666666667x^3 - 0.008333333333x^5 + 0.0001984126984x^7 - 0.000002777777778x^9
+```
+
+```
+(x-3)(x-2)(x-1)x(x+1)(x+2)(x+3)
+```
