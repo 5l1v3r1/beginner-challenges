@@ -3,9 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	p, _ := ParsePolynomial("x + 3")
-	p1, _ := ParsePolynomial("x + 1")
-	p2, _ := ParsePolynomial("x - 5")
-	p3, _ := ParsePolynomial("x + 9")
-	fmt.Println(p.Multiply(p1).Multiply(p2).Multiply(p3))
+	parts := []string{"x - 3", "x - 2", "x - 1", "x", "x + 1", "x + 2", "x + 3"}
+	res := Polynomial{1}
+	for _, part := range parts {
+		p, _ := ParsePolynomial(part)
+		res = res.Multiply(p)
+	}
+	factorMe := res.Add(Polynomial{1})
+	fmt.Println("Factors of", factorMe, "are", factorMe.Roots())
 }
