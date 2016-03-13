@@ -50,6 +50,16 @@ func (p Polynomial) Evaluate(x float64) float64 {
 	return res
 }
 
+// Degree returns the degree of the polynomial, or -1 if this is the zero polynomial.
+func (p Polynomial) Degree() int {
+	for i := len(p) - 1; i >= 0; i-- {
+		if p[i] != 0 {
+			return i
+		}
+	}
+	return -1
+}
+
 // Add returns the sum of this polynomial with another one.
 func (p Polynomial) Add(p1 Polynomial) Polynomial {
 	maxLen := len(p)
@@ -110,12 +120,7 @@ func (p Polynomial) Derivative() Polynomial {
 
 // Roots returns the roots of the polynomial.
 func (p Polynomial) Roots() []float64 {
-	for i := len(p) - 1; i >= 0; i-- {
-		if p[i] != 0 {
-			p = p[:i+1]
-			break
-		}
-	}
+	p = p[:p.Degree()+1]
 
 	if len(p) == 0 || len(p) == 1 {
 		return nil
